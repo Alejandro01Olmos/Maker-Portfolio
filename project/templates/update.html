@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block main %}
+    <form action="/update" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="New Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="New Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="trophies" placeholder="Trophies" type="number" min="0">
+        </div>
+        <div class="mb-3">
+            <p>New Brawlers Unlocked:</p>
+        </div>
+        <div class="mb-3">
+            {% for brawler in brawlers %}
+                <input name="brawler" type="checkbox" value="{{ brawler }}"> {{ brawler }}
+            {% endfor %}
+        </div>
+        <button class="btn btn-primary" type="submit">Update Account</button>
+    </form>
+{% endblock %}

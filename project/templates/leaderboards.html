@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Leaderboards
+{% endblock %}
+
+{% block main %}
+    <style>
+        table {
+            margin: auto;
+        }
+        td ol {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <h3>Top 10 Players in Trophies:</h3>
+    <table style="text-align: center">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Trophies</th>
+            </tr>
+        </thead>
+        {% for player in trophies %}
+            <tr>
+                <td>
+                    <ol start="{{ loop.index }}">
+                        <li>{{ player.username }}</li>
+                    </ol>
+                </td>
+                <td>
+                    {{ player.trophies}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h3>Top 10 Players in Games Played:</h3>
+    <table style="text-align: center">
+        <theader>
+            <tr>
+                <th>Player</th>
+                <th>Games Played</th>
+            </tr>
+        </theader>
+        {% for player in games %}
+            <tr>
+                <td>
+                    <ol start="{{ loop.index }}">
+                        <li>{{ player.username }}</li>
+                    </ol>
+                </td>
+                <td>
+                    {{ player.total_games}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table style="text-align: center">
+    <h3>Top 10 Players in Wins:</h3>
+    <table>
+        <theader>
+            <tr>
+                <th>Player</th>
+                <th>Wins</th>
+            </tr>
+        </theader>
+        {% for player in wins %}
+            <tr>
+                <td>
+                    <ol start="{{ loop.index }}">
+                        <li>{{ player.username }}</li>
+                    </ol>
+                </td>
+                <td>
+                    {{ player.total_wins}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table style="text-align: center">
+    <h3>Top 10 Players in Kills:</h3>
+    <table>
+        <theader>
+            <tr>
+                <th>Player</th>
+                <th>Kills</th>
+            </tr>
+        </theader>
+        {% for player in kills %}
+            <tr>
+                <td>
+                    <ol start="{{ loop.index }}">
+                        <li>{{ player.username }}</li>
+                    </ol>
+                </td>
+                <td>
+                    {{ player.total_kills}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

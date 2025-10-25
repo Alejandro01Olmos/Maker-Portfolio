@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create User
+{% endblock %}
+
+{% block main %}
+    <form action="/create_user" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="trophies" placeholder="Trophies" type="number" min="0">
+        </div>
+        <div class="mb-3">
+            <p>Currently Unlocked Brawlers: </p>
+        </div>
+        <div class="mb-3">
+            {% for brawler in brawlers %}
+                <input name="brawler" type="checkbox" value="{{ brawler }}"> {{ brawler }}
+            {% endfor %}
+        </div>
+        <button class="btn btn-primary" type="submit">Create User</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Statistics
+{% endblock %}
+
+{% block main %}
+<h2>Choose Your Stats</h2>
+<form action="/stats" method="post">
+    <div class="mb-3">
+        <label for="topic">Choose A Topic:</label>
+        <select id="topic" class="form-select mx-auto w-auto" name="topic">
+            <option disabled selected value="">Topic</option>
+            <option value="games">Games</option>
+            <option value="wins">Wins</option>
+            <option value="losses">Losses</opion>
+            <option value="kills">Kills</option>
+            <option value="deaths">Deaths</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="tail">Where From List:</label>
+        <select id="tail" class="form-select mx-auto w-auto" name="tail">
+            <option disabled selected value="">Tail</option>
+            <option value="Top">Top</option>
+            <option value="Bottom">Bottom</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="amount">How Many:</label>
+        <input id="amount" class="form-control mx-auto w-auto" name="amount" placeholder="Amount" type="number" min="1">
+    </div>
+    <button class="btn btn-primary" type="Submit">Analyze</button>
+</form>
+{% endblock %}

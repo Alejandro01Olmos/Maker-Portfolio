@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Statistic Results
+{% endblock %}
+
+{% block main %}
+    <h2>{{ tail }} {{ amount }} brawlers in {{ topic }}:</h2>
+    <ol style="list-style-position: inside">
+        {% for brawler in list %}
+            <li>{{ brawler.name }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

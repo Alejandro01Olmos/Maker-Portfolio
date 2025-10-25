@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Match
+{% endblock %}
+
+{% block main %}
+    <form action="/add_match" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="kills" placeholder="Kills" type="number" min="0">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="deaths" placeholder="Deaths" type="number" min="0">
+        </div>
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" name="brawler">
+                <option disabled selected value="">Brawler</option>
+                {% for brawler in selection %}
+                    <option value="{{ brawler }}">{{ brawler }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input name="result" type="radio" value="win"> Win
+            <input name="result" type="radio" value="lose"> Lose
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="trophies" placeholder="Trophies Won Or Lost" type="number" min="0">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Match</button>
+    </form>
+{% endblock %}

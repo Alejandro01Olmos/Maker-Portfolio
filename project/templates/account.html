@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+    <h1>Account</h1>
+    <h3>Username: {{ username.username }}</h3>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Trophies:</td>
+                <td>{{ trophies.trophies }}</td>
+            </tr>
+            <tr>
+                <td>Games Played:</td>
+                <td>{{ games['SUM(games)'] }}</td>
+            </tr>
+            <tr>
+                <td>Kills:</td>
+                <td>{{ kills['SUM(kills)'] }}</td>
+            </tr>
+            <tr>
+                <td>Deaths:</td>
+                <td>{{ deaths['SUM(deaths)'] }}</td>
+            </tr>
+            <tr>
+                <td>Kill/Death Ratio:</td>
+                <td>{{ kd }}</td>
+            </tr>
+            <tr>
+                <td>Wins:</td>
+                <td>{{ wins['SUM(wins)'] }}</td>
+            </tr>
+            <tr>
+                <td>Losses:</td>
+                <td>{{ losses['SUM(losses)'] }}</td>
+            </tr>
+            <tr>
+                <td>Win Rate:</td>
+                <td>{{ win_rate }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
